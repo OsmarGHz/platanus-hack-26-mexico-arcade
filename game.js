@@ -1066,52 +1066,88 @@ async function doSubmit() {
 function getLevelMusic(lvl) {
   const BLOCKS = {
     // CDMX (Mambo)
-    c1: { t: [72,2, 72,2, 0,2, 72,2, 0,2, 67,2, 72,4, 74,4, 0,4, 67,4, 0,4, 75,2, 74,2, 72,2, 74,2, 75,4, 74,4, 0,16],
-          b: [48,3, 0,3, 48,2, 0,4, 43,2, 0,2, 48,3, 0,3, 48,2, 0,4, 55,2, 0,2] },
-    c2: { t: [67,4, 67,4, 72,4, 74,4, 75,8, 74,8, 72,16, 0,16],
-          b: [48,3, 0,3, 48,2, 0,4, 43,2, 0,2, 48,3, 0,3, 48,2, 0,4, 55,2, 0,2] },
-    c3: { t: [79,2, 77,2, 75,2, 74,2, 72,8, 0,8, 79,2, 77,2, 75,2, 74,2, 72,8, 0,8, 72,16],
-          b: [48,3, 0,3, 48,2, 0,4, 43,2, 0,2, 48,3, 0,3, 48,2, 0,4, 55,2, 0,2] },
+    c1: {
+      t: [72, 2, 72, 2, 0, 2, 72, 2, 0, 2, 67, 2, 72, 4, 74, 4, 0, 4, 67, 4, 0, 4, 75, 2, 74, 2, 72, 2, 74, 2, 75, 4, 74, 4, 0, 16],
+      b: [48, 3, 0, 3, 48, 2, 0, 4, 43, 2, 0, 2, 48, 3, 0, 3, 48, 2, 0, 4, 55, 2, 0, 2]
+    },
+    c2: {
+      t: [67, 4, 67, 4, 72, 4, 74, 4, 75, 8, 74, 8, 72, 16, 0, 16],
+      b: [48, 3, 0, 3, 48, 2, 0, 4, 43, 2, 0, 2, 48, 3, 0, 3, 48, 2, 0, 4, 55, 2, 0, 2]
+    },
+    c3: {
+      t: [79, 2, 77, 2, 75, 2, 74, 2, 72, 8, 0, 8, 79, 2, 77, 2, 75, 2, 74, 2, 72, 8, 0, 8, 72, 16],
+      b: [48, 3, 0, 3, 48, 2, 0, 4, 43, 2, 0, 2, 48, 3, 0, 3, 48, 2, 0, 4, 55, 2, 0, 2]
+    },
 
     // Guadalajara (Mariachi)
-    g1: { t: [60,2, 64,2, 67,2, 67,4, 67,2, 69,2, 67,2, 65,2, 64,2, 62,2, 60,2, 60,4, 60,2, 0,6],
-          b: [48,2, 43,2, 43,2, 48,2, 43,2, 43,2] },
-    g2: { t: [67,4, 67,2, 72,6, 69,4, 69,2, 74,6, 72,2, 71,2, 69,2, 67,2, 65,2, 64,2, 62,6, 0,6],
-          b: [48,2, 43,2, 43,2, 48,2, 43,2, 43,2] },
-    g3: { t: [72,2, 72,2, 72,2, 72,6, 76,2, 76,2, 76,2, 76,6, 79,6, 76,6, 72,12],
-          b: [48,2, 43,2, 43,2, 48,2, 43,2, 43,2] },
+    g1: {
+      t: [60, 2, 64, 2, 67, 2, 67, 4, 67, 2, 69, 2, 67, 2, 65, 2, 64, 2, 62, 2, 60, 2, 60, 4, 60, 2, 0, 6],
+      b: [48, 2, 43, 2, 43, 2, 48, 2, 43, 2, 43, 2]
+    },
+    g2: {
+      t: [67, 4, 67, 2, 72, 6, 69, 4, 69, 2, 74, 6, 72, 2, 71, 2, 69, 2, 67, 2, 65, 2, 64, 2, 62, 6, 0, 6],
+      b: [48, 2, 43, 2, 43, 2, 48, 2, 43, 2, 43, 2]
+    },
+    g3: {
+      t: [72, 2, 72, 2, 72, 2, 72, 6, 76, 2, 76, 2, 76, 2, 76, 6, 79, 6, 76, 6, 72, 12],
+      b: [48, 2, 43, 2, 43, 2, 48, 2, 43, 2, 43, 2]
+    },
 
     // Monterrey (Polka Norteña)
-    m1: { t: [69,4, 72,4, 74,4, 76,4, 69,2, 69,2, 72,4, 74,4, 72,4, 69,8, 0,8, 76,4, 74,4, 72,4, 69,4],
-          b: [45,4, 52,4, 45,4, 52,4] },
-    m2: { t: [76,4, 76,4, 79,4, 76,4, 74,4, 74,4, 76,4, 74,4, 72,4, 72,4, 74,4, 72,4, 69,16],
-          b: [45,4, 52,4, 45,4, 52,4] },
-    m3: { t: [81,2, 79,2, 76,2, 74,2, 76,4, 69,4, 81,2, 79,2, 76,2, 74,2, 76,8, 76,2, 74,2, 72,2, 71,2, 72,4, 69,4, 72,16],
-          b: [45,4, 52,4, 45,4, 52,4] },
+    m1: {
+      t: [69, 4, 72, 4, 74, 4, 76, 4, 69, 2, 69, 2, 72, 4, 74, 4, 72, 4, 69, 8, 0, 8, 76, 4, 74, 4, 72, 4, 69, 4],
+      b: [45, 4, 52, 4, 45, 4, 52, 4]
+    },
+    m2: {
+      t: [76, 4, 76, 4, 79, 4, 76, 4, 74, 4, 74, 4, 76, 4, 74, 4, 72, 4, 72, 4, 74, 4, 72, 4, 69, 16],
+      b: [45, 4, 52, 4, 45, 4, 52, 4]
+    },
+    m3: {
+      t: [81, 2, 79, 2, 76, 2, 74, 2, 76, 4, 69, 4, 81, 2, 79, 2, 76, 2, 74, 2, 76, 8, 76, 2, 74, 2, 72, 2, 71, 2, 72, 4, 69, 4, 72, 16],
+      b: [45, 4, 52, 4, 45, 4, 52, 4]
+    },
 
     // Cancún (Cumbia Caribeña)
-    k1: { t: [72,3, 69,3, 67,2, 0,2, 67,2, 69,2, 72,2, 72,3, 69,3, 67,2, 0,2, 76,2, 74,2, 72,2, 0,2],
-          b: [48,3, 0,3, 48,2, 0,2, 43,2, 48,4] },
-    k2: { t: [79,4, 76,4, 72,4, 69,4, 79,4, 76,4, 72,4, 69,4, 77,4, 74,4, 71,4, 67,4, 77,4, 74,4, 71,4, 67,4],
-          b: [48,3, 0,3, 48,2, 0,2, 43,2, 48,4] },
-    k3: { t: [84,2, 81,2, 79,2, 76,2, 84,2, 81,2, 79,2, 76,2, 83,2, 79,2, 76,2, 74,2, 83,2, 79,2, 76,2, 74,2],
-          b: [48,3, 0,3, 48,2, 0,2, 43,2, 48,4] },
+    k1: {
+      t: [72, 3, 69, 3, 67, 2, 0, 2, 67, 2, 69, 2, 72, 2, 72, 3, 69, 3, 67, 2, 0, 2, 76, 2, 74, 2, 72, 2, 0, 2],
+      b: [48, 3, 0, 3, 48, 2, 0, 2, 43, 2, 48, 4]
+    },
+    k2: {
+      t: [79, 4, 76, 4, 72, 4, 69, 4, 79, 4, 76, 4, 72, 4, 69, 4, 77, 4, 74, 4, 71, 4, 67, 4, 77, 4, 74, 4, 71, 4, 67, 4],
+      b: [48, 3, 0, 3, 48, 2, 0, 2, 43, 2, 48, 4]
+    },
+    k3: {
+      t: [84, 2, 81, 2, 79, 2, 76, 2, 84, 2, 81, 2, 79, 2, 76, 2, 83, 2, 79, 2, 76, 2, 74, 2, 83, 2, 79, 2, 76, 2, 74, 2],
+      b: [48, 3, 0, 3, 48, 2, 0, 2, 43, 2, 48, 4]
+    },
 
     // Mulegé (Surf Corrido)
-    s1: { t: [64,8, 65,4, 64,4, 62,8, 60,8, 64,8, 67,4, 65,4, 64,16],
-          b: [40,8, 0,8, 38,8, 0,8, 40,8, 0,8, 33,16] },
-    s2: { t: [69,8, 67,8, 65,8, 64,8, 62,8, 64,8, 60,16],
-          b: [40,8, 0,8, 38,8, 0,8, 40,8, 0,8, 33,16] },
-    s3: { t: [72,12, 71,4, 69,12, 67,4, 65,8, 64,8, 62,16],
-          b: [40,8, 0,8, 38,8, 0,8, 40,8, 0,8, 33,16] },
+    s1: {
+      t: [64, 8, 65, 4, 64, 4, 62, 8, 60, 8, 64, 8, 67, 4, 65, 4, 64, 16],
+      b: [40, 8, 0, 8, 38, 8, 0, 8, 40, 8, 0, 8, 33, 16]
+    },
+    s2: {
+      t: [69, 8, 67, 8, 65, 8, 64, 8, 62, 8, 64, 8, 60, 16],
+      b: [40, 8, 0, 8, 38, 8, 0, 8, 40, 8, 0, 8, 33, 16]
+    },
+    s3: {
+      t: [72, 12, 71, 4, 69, 12, 67, 4, 65, 8, 64, 8, 62, 16],
+      b: [40, 8, 0, 8, 38, 8, 0, 8, 40, 8, 0, 8, 33, 16]
+    },
 
     // Veracruz (Son Jarocho)
-    v1: { t: [67,2, 72,2, 76,2, 76,2, 76,2, 74,2, 72,2, 74,2, 77,2, 77,2, 77,2, 76,2, 74,2, 72,2, 71,2, 67,2],
-          b: [48,3, 48,3, 48,2, 43,3, 43,3, 43,2] },
-    v2: { t: [79,2, 76,2, 72,2, 79,2, 76,2, 72,2, 79,4, 77,2, 74,2, 71,2, 77,2, 74,2, 71,2, 77,4],
-          b: [48,3, 48,3, 48,2, 43,3, 43,3, 43,2] },
-    v3: { t: [72,4, 76,4, 72,4, 76,4, 74,4, 77,4, 74,4, 77,4],
-          b: [48,3, 48,3, 48,2, 43,3, 43,3, 43,2] }
+    v1: {
+      t: [67, 2, 72, 2, 76, 2, 76, 2, 76, 2, 74, 2, 72, 2, 74, 2, 77, 2, 77, 2, 77, 2, 76, 2, 74, 2, 72, 2, 71, 2, 67, 2],
+      b: [48, 3, 48, 3, 48, 2, 43, 3, 43, 3, 43, 2]
+    },
+    v2: {
+      t: [79, 2, 76, 2, 72, 2, 79, 2, 76, 2, 72, 2, 79, 4, 77, 2, 74, 2, 71, 2, 77, 2, 74, 2, 71, 2, 77, 4],
+      b: [48, 3, 48, 3, 48, 2, 43, 3, 43, 3, 43, 2]
+    },
+    v3: {
+      t: [72, 4, 76, 4, 72, 4, 76, 4, 74, 4, 77, 4, 74, 4, 77, 4],
+      b: [48, 3, 48, 3, 48, 2, 43, 3, 43, 3, 43, 2]
+    }
   };
 
   const TRACKS = [
@@ -1128,14 +1164,14 @@ function getLevelMusic(lvl) {
 
   for (let bName of trk.seq) {
     let blk = BLOCKS[bName];
-    let tSum = 0; for(let i=1; i<blk.t.length; i+=2) tSum += blk.t[i];
-    let bSum = 0; for(let i=1; i<blk.b.length; i+=2) bSum += blk.b[i];
+    let tSum = 0; for (let i = 1; i < blk.t.length; i += 2) tSum += blk.t[i];
+    let bSum = 0; for (let i = 1; i < blk.b.length; i += 2) bSum += blk.b[i];
 
-    for(let i=0; i<blk.t.length; i+=2) tune.push([blk.t[i]===0?0:440*Math.pow(2,(blk.t[i]-69)/12), blk.t[i+1]*trk.spd]);
+    for (let i = 0; i < blk.t.length; i += 2) tune.push([blk.t[i] === 0 ? 0 : 440 * Math.pow(2, (blk.t[i] - 69) / 12), blk.t[i + 1] * trk.spd]);
 
     let loops = Math.round(tSum / bSum);
-    for(let l=0; l<loops; l++) {
-      for(let i=0; i<blk.b.length; i+=2) bass.push([blk.b[i]===0?0:440*Math.pow(2,(blk.b[i]-69)/12), blk.b[i+1]*trk.spd]);
+    for (let l = 0; l < loops; l++) {
+      for (let i = 0; i < blk.b.length; i += 2) bass.push([blk.b[i] === 0 ? 0 : 440 * Math.pow(2, (blk.b[i] - 69) / 12), blk.b[i + 1] * trk.spd]);
     }
   }
   return { tune, bass };
@@ -1186,7 +1222,7 @@ function sfxItemPickup() {
   tone(880, 'sine', 0.10, 0.22); tone(1108, 'sine', 0.10, 0.22, 0.09);
 }
 
-// Shield break: descending glass-like crash
+// Shield break: descending glass like crash
 function sfxShieldBreak() {
   [1400, 1050, 700, 400, 200].forEach((f, i) => tone(f, 'sawtooth', 0.06, 0.18, i * 0.05));
   tone(180, 'triangle', 0.15, 0.30, 0.28);
@@ -1234,11 +1270,11 @@ function startMusic() {
   currentLevelMusic = getLevelMusic(level);
   try {
     const ctx = sc.sound.context;
-    if (musicGain) { try { musicGain.disconnect(); } catch(e){} }
+    if (musicGain) { try { musicGain.disconnect(); } catch (e) { } }
     musicGain = ctx.createGain();
     musicGain.gain.setValueAtTime(1, ctx.currentTime);
     musicGain.connect(ctx.destination);
-  } catch(e) {}
+  } catch (e) { }
   function loop() {
     if (!musicPlaying || !currentLevelMusic) return;
     try {
@@ -1261,7 +1297,7 @@ function stopMusic() {
       musicGain.disconnect();
       musicGain = null;
     }
-  } catch(e) {}
+  } catch (e) { }
 }
 
 // ── Level Backgrounds (Mexican Cities) ───────────────────────────────────────
@@ -1339,7 +1375,7 @@ function bgGuadalajara() {
   bgSky(0xcc5522, 0xffaa44); // atardecer cálido con cielo naranja
   // Nubes teñidas de naranja
   gLvlBg.fillStyle(0xff9966, 0.22);
-  [[130,100,70],[350,80,55],[580,110,65],[700,90,48]].forEach(([x,y,r])=>gLvlBg.fillCircle(x,y,r));
+  [[130, 100, 70], [350, 80, 55], [580, 110, 65], [700, 90, 48]].forEach(([x, y, r]) => gLvlBg.fillCircle(x, y, r));
   // Suelo tierra roja
   gLvlBg.fillStyle(0x7a4830, 1); gLvlBg.fillRect(0, 440, W, FLOOR_Y - 440);
   gLvlBg.fillStyle(0x5c3320, 0.7); gLvlBg.fillRect(0, 470, W, FLOOR_Y - 470);
@@ -1354,22 +1390,22 @@ function bgGuadalajara() {
   gLvlBg.fillTriangle(258, 210, 294, 155, 330, 210);
   gLvlBg.fillTriangle(470, 220, 506, 168, 542, 220);
   // Cruz en pináculo
-  gLvlBg.fillStyle(0xddbb88, 1); gLvlBg.fillRect(291,148,6,20); gLvlBg.fillRect(285,153,18,5);
-  gLvlBg.fillRect(503,161,6,20); gLvlBg.fillRect(497,166,18,5);
+  gLvlBg.fillStyle(0xddbb88, 1); gLvlBg.fillRect(291, 148, 6, 20); gLvlBg.fillRect(285, 153, 18, 5);
+  gLvlBg.fillRect(503, 161, 6, 20); gLvlBg.fillRect(497, 166, 18, 5);
   // Ventana rosetón
-  gLvlBg.fillStyle(0xffcc66,0.6); gLvlBg.fillCircle(400,330,28);
-  gLvlBg.fillStyle(0x7a5538,1); gLvlBg.fillCircle(400,330,18);
-  gLvlBg.fillStyle(0xffcc66,0.4); gLvlBg.fillCircle(400,330,10);
+  gLvlBg.fillStyle(0xffcc66, 0.6); gLvlBg.fillCircle(400, 330, 28);
+  gLvlBg.fillStyle(0x7a5538, 1); gLvlBg.fillCircle(400, 330, 18);
+  gLvlBg.fillStyle(0xffcc66, 0.4); gLvlBg.fillCircle(400, 330, 10);
   // Arco de entrada
-  gLvlBg.fillStyle(0x5a3a1e,1); gLvlBg.fillRect(380,380,40,72);
-  gLvlBg.fillCircle(400,380,20);
+  gLvlBg.fillStyle(0x5a3a1e, 1); gLvlBg.fillRect(380, 380, 40, 72);
+  gLvlBg.fillCircle(400, 380, 20);
   // Lámparas de calle
-  gLvlBg.fillStyle(0x886644,1);
-  [[158,440],[640,440]].forEach(([x,y])=>{ gLvlBg.fillRect(x-2,y-80,4,80); gLvlBg.fillStyle(0xffee88,0.8); gLvlBg.fillCircle(x,y-80,7); gLvlBg.fillStyle(0x886644,1); });
+  gLvlBg.fillStyle(0x886644, 1);
+  [[158, 440], [640, 440]].forEach(([x, y]) => { gLvlBg.fillRect(x - 2, y - 80, 4, 80); gLvlBg.fillStyle(0xffee88, 0.8); gLvlBg.fillCircle(x, y - 80, 7); gLvlBg.fillStyle(0x886644, 1); });
   // Plantas de agave (en silueta)
   gLvlBg.fillStyle(0x2a5a22, 0.95);
-  [[90,440],[680,440],[720,450],[60,450],[360,442]].forEach(([x,y])=>{
-    for(let a=-0.9;a<=0.9;a+=0.3){gLvlBg.fillTriangle(x,y,x+Math.sin(a)*55,y-55+Math.cos(a)*8,x+Math.sin(a)*62,y-50+Math.cos(a)*8);}
+  [[90, 440], [680, 440], [720, 450], [60, 450], [360, 442]].forEach(([x, y]) => {
+    for (let a = -0.9; a <= 0.9; a += 0.3) { gLvlBg.fillTriangle(x, y, x + Math.sin(a) * 55, y - 55 + Math.cos(a) * 8, x + Math.sin(a) * 62, y - 50 + Math.cos(a) * 8); }
   });
 }
 
@@ -1387,147 +1423,147 @@ function bgMonterrey() {
   gLvlBg.fillTriangle(224, 192, 240, 178, 256, 192);
   gLvlBg.fillTriangle(544, 218, 560, 205, 576, 218);
   // Skyline moderno de Monterrey
-  const bldgs = [[130,370,32,100],[172,345,44,125],[226,318,36,142],[286,356,30,114],[480,325,44,145],[534,348,36,122],[580,372,30,108],[624,358,34,120]];
-  bldgs.forEach(([x,y,w,h])=>{
-    gLvlBg.fillStyle(0x223344,0.92); gLvlBg.fillRect(x,y,w,h);
+  const bldgs = [[130, 370, 32, 100], [172, 345, 44, 125], [226, 318, 36, 142], [286, 356, 30, 114], [480, 325, 44, 145], [534, 348, 36, 122], [580, 372, 30, 108], [624, 358, 34, 120]];
+  bldgs.forEach(([x, y, w, h]) => {
+    gLvlBg.fillStyle(0x223344, 0.92); gLvlBg.fillRect(x, y, w, h);
     // Ventanas iluminadas
-    gLvlBg.fillStyle(0xffee88,0.28);
-    for(let wy=y+10;wy<y+h-10;wy+=18)for(let wx=x+5;wx<x+w-5;wx+=10)gLvlBg.fillRect(wx,wy,6,9);
-    gLvlBg.fillStyle(0x4a7aaa,0.55); gLvlBg.fillRect(x,y,w,4);
+    gLvlBg.fillStyle(0xffee88, 0.28);
+    for (let wy = y + 10; wy < y + h - 10; wy += 18)for (let wx = x + 5; wx < x + w - 5; wx += 10)gLvlBg.fillRect(wx, wy, 6, 9);
+    gLvlBg.fillStyle(0x4a7aaa, 0.55); gLvlBg.fillRect(x, y, w, 4);
   });
   // Macroplaza (plaza grande)
-  gLvlBg.fillStyle(0x887766,0.7); gLvlBg.fillRect(310,448,180,FLOOR_Y-448);
+  gLvlBg.fillStyle(0x887766, 0.7); gLvlBg.fillRect(310, 448, 180, FLOOR_Y - 448);
   // Faro del Comercio (obelisco)
-  gLvlBg.fillStyle(0xcc4422,0.9); gLvlBg.fillRect(393,360,14,92);
-  gLvlBg.fillTriangle(388,360,400,335,412,360);
+  gLvlBg.fillStyle(0xcc4422, 0.9); gLvlBg.fillRect(393, 360, 14, 92);
+  gLvlBg.fillTriangle(388, 360, 400, 335, 412, 360);
   // Faros de calle
-  gLvlBg.fillStyle(0x778899,1);
-  [[108,440],[690,440]].forEach(([x,y])=>{
-    gLvlBg.fillRect(x-2,y-70,4,70);
-    gLvlBg.fillStyle(0xffee88,0.75); gLvlBg.fillCircle(x,y-70,6);
-    gLvlBg.fillStyle(0x778899,1);
+  gLvlBg.fillStyle(0x778899, 1);
+  [[108, 440], [690, 440]].forEach(([x, y]) => {
+    gLvlBg.fillRect(x - 2, y - 70, 4, 70);
+    gLvlBg.fillStyle(0xffee88, 0.75); gLvlBg.fillCircle(x, y - 70, 6);
+    gLvlBg.fillStyle(0x778899, 1);
   });
 }
 
 function bgCancun() {
   bgSky(0x0088cc, 0x22ccff); // caribe brillante
   // Sol tropical
-  gLvlBg.fillStyle(0xffee44,0.8); gLvlBg.fillCircle(680,90,42);
-  gLvlBg.fillStyle(0xffdd00,0.18); gLvlBg.fillCircle(680,90,62);
+  gLvlBg.fillStyle(0xffee44, 0.8); gLvlBg.fillCircle(680, 90, 42);
+  gLvlBg.fillStyle(0xffdd00, 0.18); gLvlBg.fillCircle(680, 90, 62);
   // Mar turquesa con capas de color
-  gLvlBg.fillStyle(0x007aaa,0.95); gLvlBg.fillRect(0,270,W,200);
-  gLvlBg.fillStyle(0x00aacc,0.7);  gLvlBg.fillRect(0,270,W,50);
-  gLvlBg.fillStyle(0x00ccee,0.4);  gLvlBg.fillRect(0,270,W,18);
+  gLvlBg.fillStyle(0x007aaa, 0.95); gLvlBg.fillRect(0, 270, W, 200);
+  gLvlBg.fillStyle(0x00aacc, 0.7); gLvlBg.fillRect(0, 270, W, 50);
+  gLvlBg.fillStyle(0x00ccee, 0.4); gLvlBg.fillRect(0, 270, W, 18);
   // Olas
-  gLvlBg.lineStyle(2,0xaaeeff,0.55);
-  for(let x=55;x<WALL_R;x+=56){gLvlBg.beginPath();gLvlBg.arc(x,296,13,Math.PI,0,false);gLvlBg.strokePath();}
-  gLvlBg.lineStyle(1,0xccffff,0.3);
-  for(let x=80;x<WALL_R;x+=60){gLvlBg.beginPath();gLvlBg.arc(x,316,10,Math.PI,0,false);gLvlBg.strokePath();}
+  gLvlBg.lineStyle(2, 0xaaeeff, 0.55);
+  for (let x = 55; x < WALL_R; x += 56) { gLvlBg.beginPath(); gLvlBg.arc(x, 296, 13, Math.PI, 0, false); gLvlBg.strokePath(); }
+  gLvlBg.lineStyle(1, 0xccffff, 0.3);
+  for (let x = 80; x < WALL_R; x += 60) { gLvlBg.beginPath(); gLvlBg.arc(x, 316, 10, Math.PI, 0, false); gLvlBg.strokePath(); }
   // Arena (gradiente)
-  gLvlBg.fillStyle(0xf8e8a0,1); gLvlBg.fillRect(0,450,W,FLOOR_Y-450);
-  gLvlBg.fillStyle(0xe8d080,0.6); gLvlBg.fillRect(0,475,W,FLOOR_Y-475);
+  gLvlBg.fillStyle(0xf8e8a0, 1); gLvlBg.fillRect(0, 450, W, FLOOR_Y - 450);
+  gLvlBg.fillStyle(0xe8d080, 0.6); gLvlBg.fillRect(0, 475, W, FLOOR_Y - 475);
   // Sombrilla de playa
-  gLvlBg.fillStyle(0xff5533,0.9); gLvlBg.fillTriangle(200,340,140,450,260,450);
-  gLvlBg.fillStyle(0xffee22,0.9); gLvlBg.fillTriangle(200,340,200,450,260,450);
-  gLvlBg.fillStyle(0x7a5c2e,1); gLvlBg.fillRect(199,340,2,115);
+  gLvlBg.fillStyle(0xff5533, 0.9); gLvlBg.fillTriangle(200, 340, 140, 450, 260, 450);
+  gLvlBg.fillStyle(0xffee22, 0.9); gLvlBg.fillTriangle(200, 340, 200, 450, 260, 450);
+  gLvlBg.fillStyle(0x7a5c2e, 1); gLvlBg.fillRect(199, 340, 2, 115);
   // Palmeras
-  [[110,450],[660,450],[320,455],[540,452]].forEach(([tx,ty])=>{
+  [[110, 450], [660, 450], [320, 455], [540, 452]].forEach(([tx, ty]) => {
     // Tronco ligeramente curvado
-    gLvlBg.fillStyle(0x8a6535,1);
-    gLvlBg.fillRect(tx-5,ty-130,9,130);
+    gLvlBg.fillStyle(0x8a6535, 1);
+    gLvlBg.fillRect(tx - 5, ty - 130, 9, 130);
     // Hojas
-    gLvlBg.fillStyle(0x2a8030,0.95);
-    for(let a=-1.1;a<=1.1;a+=0.37){gLvlBg.fillTriangle(tx,ty-130,tx+Math.sin(a)*75,ty-130+Math.cos(a)*55,tx+Math.sin(a)*85,ty-125+Math.cos(a)*55);}
-    gLvlBg.fillStyle(0x44aa44,0.5);
-    for(let a=-0.8;a<=0.8;a+=0.5){gLvlBg.fillTriangle(tx,ty-130,tx+Math.sin(a)*55,ty-130+Math.cos(a)*38,tx+Math.sin(a)*62,ty-127+Math.cos(a)*38);}
+    gLvlBg.fillStyle(0x2a8030, 0.95);
+    for (let a = -1.1; a <= 1.1; a += 0.37) { gLvlBg.fillTriangle(tx, ty - 130, tx + Math.sin(a) * 75, ty - 130 + Math.cos(a) * 55, tx + Math.sin(a) * 85, ty - 125 + Math.cos(a) * 55); }
+    gLvlBg.fillStyle(0x44aa44, 0.5);
+    for (let a = -0.8; a <= 0.8; a += 0.5) { gLvlBg.fillTriangle(tx, ty - 130, tx + Math.sin(a) * 55, ty - 130 + Math.cos(a) * 38, tx + Math.sin(a) * 62, ty - 127 + Math.cos(a) * 38); }
   });
   // Gaviota
-  gLvlBg.lineStyle(2,0xffffff,0.7);
-  [[480,130],[520,115],[560,128]].forEach(([x,y])=>{
-    gLvlBg.beginPath();gLvlBg.moveTo(x-10,y);gLvlBg.lineTo(x,y-7);gLvlBg.lineTo(x+10,y);gLvlBg.strokePath();
+  gLvlBg.lineStyle(2, 0xffffff, 0.7);
+  [[480, 130], [520, 115], [560, 128]].forEach(([x, y]) => {
+    gLvlBg.beginPath(); gLvlBg.moveTo(x - 10, y); gLvlBg.lineTo(x, y - 7); gLvlBg.lineTo(x + 10, y); gLvlBg.strokePath();
   });
 }
 
 function bgMulege() {
   bgSky(0x6688bb, 0xddbb88); // bruma desértica de Baja California
   // Sol del desierto
-  gLvlBg.fillStyle(0xffcc22,0.9); gLvlBg.fillCircle(120,100,38);
-  gLvlBg.fillStyle(0xffdd55,0.2); gLvlBg.fillCircle(120,100,58);
+  gLvlBg.fillStyle(0xffcc22, 0.9); gLvlBg.fillCircle(120, 100, 38);
+  gLvlBg.fillStyle(0xffdd55, 0.2); gLvlBg.fillCircle(120, 100, 58);
   // Golfo de California (a lo lejos)
-  gLvlBg.fillStyle(0x3388aa,0.75); gLvlBg.fillRect(0,175,W,110);
-  gLvlBg.fillStyle(0x55aacc,0.45); gLvlBg.fillRect(0,175,W,30);
+  gLvlBg.fillStyle(0x3388aa, 0.75); gLvlBg.fillRect(0, 175, W, 110);
+  gLvlBg.fillStyle(0x55aacc, 0.45); gLvlBg.fillRect(0, 175, W, 30);
   // Montañas del desierto al fondo
-  gLvlBg.fillStyle(0x8a6644,0.7);
-  gLvlBg.fillTriangle(0,FLOOR_Y,150,290,300,FLOOR_Y);
-  gLvlBg.fillTriangle(500,FLOOR_Y,650,310,800,FLOOR_Y);
+  gLvlBg.fillStyle(0x8a6644, 0.7);
+  gLvlBg.fillTriangle(0, FLOOR_Y, 150, 290, 300, FLOOR_Y);
+  gLvlBg.fillTriangle(500, FLOOR_Y, 650, 310, 800, FLOOR_Y);
   // Suelo desértico con capas
-  gLvlBg.fillStyle(0xcc8833,1); gLvlBg.fillRect(0,375,W,FLOOR_Y-375);
-  gLvlBg.fillStyle(0xaa6622,0.6); gLvlBg.fillRect(0,428,W,FLOOR_Y-428);
-  gLvlBg.fillStyle(0xbb7733,0.3); gLvlBg.fillRect(0,415,W,15);
+  gLvlBg.fillStyle(0xcc8833, 1); gLvlBg.fillRect(0, 375, W, FLOOR_Y - 375);
+  gLvlBg.fillStyle(0xaa6622, 0.6); gLvlBg.fillRect(0, 428, W, FLOOR_Y - 428);
+  gLvlBg.fillStyle(0xbb7733, 0.3); gLvlBg.fillRect(0, 415, W, 15);
   // Cactus cardón de Baja California (alturas fijas)
-  [[110,170],[240,155],[490,162],[648,168],[718,158]].forEach(([cx,hy])=>{
-    gLvlBg.fillStyle(0x3a6e30,1);
-    gLvlBg.fillRect(cx-9,hy,18,375-hy); // tronco
-    gLvlBg.fillRect(cx-24,hy+38,13,52); // brazo izq
-    gLvlBg.fillRect(cx-24,hy+14,13,28); // base brazo izq
-    gLvlBg.fillRect(cx+11,hy+50,13,50);  // brazo der
-    gLvlBg.fillRect(cx+11,hy+22,13,32);  // base brazo der
+  [[110, 170], [240, 155], [490, 162], [648, 168], [718, 158]].forEach(([cx, hy]) => {
+    gLvlBg.fillStyle(0x3a6e30, 1);
+    gLvlBg.fillRect(cx - 9, hy, 18, 375 - hy); // tronco
+    gLvlBg.fillRect(cx - 24, hy + 38, 13, 52); // brazo izq
+    gLvlBg.fillRect(cx - 24, hy + 14, 13, 28); // base brazo izq
+    gLvlBg.fillRect(cx + 11, hy + 50, 13, 50);  // brazo der
+    gLvlBg.fillRect(cx + 11, hy + 22, 13, 32);  // base brazo der
     // Espinas
-    gLvlBg.fillStyle(0xaacc88,0.5);
-    gLvlBg.fillRect(cx-10,hy+70,2,4); gLvlBg.fillRect(cx+8,hy+90,2,4);
+    gLvlBg.fillStyle(0xaacc88, 0.5);
+    gLvlBg.fillRect(cx - 10, hy + 70, 2, 4); gLvlBg.fillRect(cx + 8, hy + 90, 2, 4);
   });
   // Rocas y boulder
-  gLvlBg.fillStyle(0x997766,0.85);
-  [[80,385,28],[390,405,20],[590,392,26],[450,395,14]].forEach(([x,y,r])=>gLvlBg.fillCircle(x,y,r));
-  gLvlBg.fillStyle(0x776655,0.5);
-  [[82,393,14],[392,411,10],[592,400,12]].forEach(([x,y,r])=>gLvlBg.fillCircle(x,y,r));
+  gLvlBg.fillStyle(0x997766, 0.85);
+  [[80, 385, 28], [390, 405, 20], [590, 392, 26], [450, 395, 14]].forEach(([x, y, r]) => gLvlBg.fillCircle(x, y, r));
+  gLvlBg.fillStyle(0x776655, 0.5);
+  [[82, 393, 14], [392, 411, 10], [592, 400, 12]].forEach(([x, y, r]) => gLvlBg.fillCircle(x, y, r));
 }
 
 function bgVeracruz() {
   bgSky(0xee5522, 0xffcc55); // atardecer del Golfo
   // Sol poniéndose
-  gLvlBg.fillStyle(0xffbb22,0.85); gLvlBg.fillCircle(700,155,45);
-  gLvlBg.fillStyle(0xff8833,0.25); gLvlBg.fillCircle(700,155,70);
+  gLvlBg.fillStyle(0xffbb22, 0.85); gLvlBg.fillCircle(700, 155, 45);
+  gLvlBg.fillStyle(0xff8833, 0.25); gLvlBg.fillCircle(700, 155, 70);
   // Reflejo del sol en el agua
-  gLvlBg.fillStyle(0xffaa44,0.25); gLvlBg.fillRect(640,230,120,200);
+  gLvlBg.fillStyle(0xffaa44, 0.25); gLvlBg.fillRect(640, 230, 120, 200);
   // Golfo de México (capas de color)
-  gLvlBg.fillStyle(0x1a5572,0.95); gLvlBg.fillRect(0,225,W,215);
-  gLvlBg.fillStyle(0x2277aa,0.55); gLvlBg.fillRect(0,225,W,55);
-  gLvlBg.fillStyle(0x44aacc,0.3); gLvlBg.fillRect(0,225,W,20);
+  gLvlBg.fillStyle(0x1a5572, 0.95); gLvlBg.fillRect(0, 225, W, 215);
+  gLvlBg.fillStyle(0x2277aa, 0.55); gLvlBg.fillRect(0, 225, W, 55);
+  gLvlBg.fillStyle(0x44aacc, 0.3); gLvlBg.fillRect(0, 225, W, 20);
   // Olas
-  gLvlBg.lineStyle(2,0x88ccdd,0.45);
-  for(let x=55;x<WALL_R;x+=75){gLvlBg.beginPath();gLvlBg.arc(x,262,17,Math.PI,0,false);gLvlBg.strokePath();}
-  gLvlBg.lineStyle(1,0xaaddee,0.25);
-  for(let x=80;x<WALL_R;x+=65){gLvlBg.beginPath();gLvlBg.arc(x,285,11,Math.PI,0,false);gLvlBg.strokePath();}
+  gLvlBg.lineStyle(2, 0x88ccdd, 0.45);
+  for (let x = 55; x < WALL_R; x += 75) { gLvlBg.beginPath(); gLvlBg.arc(x, 262, 17, Math.PI, 0, false); gLvlBg.strokePath(); }
+  gLvlBg.lineStyle(1, 0xaaddee, 0.25);
+  for (let x = 80; x < WALL_R; x += 65) { gLvlBg.beginPath(); gLvlBg.arc(x, 285, 11, Math.PI, 0, false); gLvlBg.strokePath(); }
   // Fuerte de San Juan de Ulúa
-  gLvlBg.fillStyle(0x2e4020,0.95);
-  gLvlBg.fillRect(60,160,310,80); // cuerpo del fuerte
+  gLvlBg.fillStyle(0x2e4020, 0.95);
+  gLvlBg.fillRect(60, 160, 310, 80); // cuerpo del fuerte
   // Almenas
-  gLvlBg.fillStyle(0x2e4020,1);
-  for(let bx=62;bx<368;bx+=36){gLvlBg.fillRect(bx,138,24,26);}
+  gLvlBg.fillStyle(0x2e4020, 1);
+  for (let bx = 62; bx < 368; bx += 36) { gLvlBg.fillRect(bx, 138, 24, 26); }
   // Torre redonda
-  gLvlBg.fillStyle(0x243318,1); gLvlBg.fillCircle(62,200,42);
+  gLvlBg.fillStyle(0x243318, 1); gLvlBg.fillCircle(62, 200, 42);
   // Puerta del fuerte
-  gLvlBg.fillStyle(0x101a08,1); gLvlBg.fillRect(190,196,30,44);
-  gLvlBg.fillCircle(205,196,15);
+  gLvlBg.fillStyle(0x101a08, 1); gLvlBg.fillRect(190, 196, 30, 44);
+  gLvlBg.fillCircle(205, 196, 15);
   // Bandera
-  gLvlBg.fillStyle(0x889988,1); gLvlBg.fillRect(335,100,3,62);
-  gLvlBg.fillStyle(0x006847,1); gLvlBg.fillRect(338,102,14,40);
-  gLvlBg.fillStyle(0xffffff,1); gLvlBg.fillRect(352,102,14,40);
-  gLvlBg.fillStyle(0xce1126,1); gLvlBg.fillRect(366,102,14,40);
+  gLvlBg.fillStyle(0x889988, 1); gLvlBg.fillRect(335, 100, 3, 62);
+  gLvlBg.fillStyle(0x006847, 1); gLvlBg.fillRect(338, 102, 14, 40);
+  gLvlBg.fillStyle(0xffffff, 1); gLvlBg.fillRect(352, 102, 14, 40);
+  gLvlBg.fillStyle(0xce1126, 1); gLvlBg.fillRect(366, 102, 14, 40);
   // Playa de arena (Veracruz)
-  gLvlBg.fillStyle(0xdec070,1); gLvlBg.fillRect(0,430,W,FLOOR_Y-430);
-  gLvlBg.fillStyle(0xcaae5a,0.5); gLvlBg.fillRect(0,460,W,FLOOR_Y-460);
+  gLvlBg.fillStyle(0xdec070, 1); gLvlBg.fillRect(0, 430, W, FLOOR_Y - 430);
+  gLvlBg.fillStyle(0xcaae5a, 0.5); gLvlBg.fillRect(0, 460, W, FLOOR_Y - 460);
   // Gaviotas
-  gLvlBg.lineStyle(2,0xffffff,0.65);
-  [[180,165],[295,148],[410,175],[500,140]].forEach(([x,y])=>{
-    gLvlBg.beginPath();gLvlBg.moveTo(x-11,y);gLvlBg.lineTo(x,y-7);gLvlBg.lineTo(x+11,y);gLvlBg.strokePath();
+  gLvlBg.lineStyle(2, 0xffffff, 0.65);
+  [[180, 165], [295, 148], [410, 175], [500, 140]].forEach(([x, y]) => {
+    gLvlBg.beginPath(); gLvlBg.moveTo(x - 11, y); gLvlBg.lineTo(x, y - 7); gLvlBg.lineTo(x + 11, y); gLvlBg.strokePath();
   });
   // Barco en el horizonte
-  gLvlBg.fillStyle(0x1a2a18,0.7);
-  gLvlBg.fillRect(530,238,55,18);
-  gLvlBg.fillRect(549,218,4,22);
-  gLvlBg.fillTriangle(545,218,553,195,561,218);
+  gLvlBg.fillStyle(0x1a2a18, 0.7);
+  gLvlBg.fillRect(530, 238, 55, 18);
+  gLvlBg.fillRect(549, 218, 4, 22);
+  gLvlBg.fillTriangle(545, 218, 553, 195, 561, 218);
 }
 
 // ── Storage ───────────────────────────────────────────────────────────────────
